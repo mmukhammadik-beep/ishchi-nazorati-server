@@ -9,14 +9,14 @@ from telegram.ext import (
 )
 import threading
 
-BOT_TOKEN = os.getenv("8102217053:AAGY8W3EztjicmKcsD87tZynsimEr6jTtPE")
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 ADMIN_LOGIN = os.getenv("ADMIN_LOGIN", "admin")
 ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "Qwer9889")
 
 DATABASE_FILE = "customers.json"
 app = Flask(__name__)
 
-bot = Bot(8102217053:AAGY8W3EztjicmKcsD87tZynsimEr6jTtPE)
+bot = Bot(BOT_TOKEN)
 
 def load_db():
     if not os.path.exists(DATABASE_FILE):
@@ -134,11 +134,7 @@ async def logout(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("🔓 Chiqdingiz.")
 
 def run_bot():
-    tg = ApplicationBuilder().token(8102217053:AAGY8W3EztjicmKcsD87tZynsimEr6jTtPEBOT_TOKEN=8102217053:AAGakdqRyEvR_cNNZw92ErHVBvo6QkMJWTU
-ADMIN_LOGIN=admin
-ADMIN_PASSWORD=Qwer9889BOT_TOKEN=8102217053:AAGakdqRyEvR_cNNZw92ErHVBvo6QkMJWTU
-ADMIN_LOGIN=admin
-ADMIN_PASSWORD=Qwer9889).build()
+    tg = ApplicationBuilder().token(BOT_TOKEN).build()
     tg.add_handler(CommandHandler("start", start))
     tg.add_handler(CommandHandler("addcustomer", addcustomer))
     tg.add_handler(CommandHandler("list", listcustomers))
